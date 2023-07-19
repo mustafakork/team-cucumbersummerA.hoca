@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.AmazonPage;
@@ -90,4 +91,14 @@ public class AmazonStepDefinitions {
     public void kullaniciAnasayfayaGider(String ıstenenUrl) {
         Driver.getDriver().get(ConfigReader.getProperty(ıstenenUrl));
     }
-}
+    @When("ilk urunu tiklar")
+    public void ilk_urunu_tiklar() {
+amazonPage.ilkUrunElementi.click();
+
+    }
+    @Then("urun isminde {string} oldugunu test eder")
+    public void urun_isminde_oldugunu_test_eder(String isteneniçerik) {
+
+        Assert.assertTrue(amazonPage.ilkUrunIsimElementi.getText().contains(isteneniçerik));
+
+}}
