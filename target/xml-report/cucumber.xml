@@ -1,37 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.813" tests="3" skipped="0" failures="1" errors="0">
-<testcase classname="US1004 Amazonda listeden ilk urunun dogru oldugunu test eder" name="TC08 ilk urun ismi arattirdigimiz kelimeyi icermeli" time="0.048">
+<testsuite name="Cucumber" time="24.664" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Automation Exercise sayfasında Test yapma" name="TC01 sayfada tc yapılabilmeli" time="24.22">
 <system-out><![CDATA[
-Given kullanici "amazonUrl" anasayfaya gider................................passed
-Then arama kutusuna "Nutella" yazip, ENTER tusuna basar.....................passed
-When ilk urunu tiklar.......................................................passed
-Then urun isminde "Nutella" oldugunu test eder..............................passed
-And sayfayi kapatir.........................................................passed
-]]></system-out>
-</testcase>
-<testcase classname="US1005 Pozitif LOgin Testi" name="TC kullanıcı doğru değerlerle uygulamaya giriş yapabilmeli" time="0.01">
-<system-out><![CDATA[
-Given kullanici "qdUrl" anasayfaya gider....................................passed
-Then anasayfada login linkine click yapar...................................passed
-And cookies kabul edilir....................................................passed
-And email kutusuna "qdGecerliUsername" yazar................................passed
-And 3 saniye bekler.........................................................passed
-And password kutusuna "qdGecerliPassword" yazar.............................passed
-When login butonuna basar...................................................passed
-Then basarili olarak giris yapildigini test eder............................passed
-And sayfayi kapatir.........................................................passed
-]]></system-out>
-</testcase>
-<testcase classname="US1006 kullanıcı guru99 sitesine gider istenen aramaları yapar" name="TC guru99 sistesi girmeli istenen aramaları yapmalı" time="0.051">
-<failure/>
-<system-out><![CDATA[
-Given kullanici "guru99Url1" anasayfaya gider...............................passed
-Then Sayfanın title’ında Telecom yazdığını doğrulayın.......................undefined
-And Add Costumer sayfasına gidin............................................skipped
-And Formu doldurup submit ekleyin...........................................skipped
-And Kaydın başarıyla yapıldığı doğrulayın...................................skipped
-And Kullanıcının costumer id’sini yazdırın..................................skipped
-And sayfayi kapatir.........................................................skipped
+Given Navigate to url "autoUrl".............................................passed
+Then Verify that home page is visible successfully..........................passed
+And Click on Products button................................................passed
+And Verify user is navigated to ALL PRODUCTS page successfully..............passed
+And Enter product name in search input and click search button..............passed
+And Verify SEARCHED PRODUCTS is visible.....................................passed
+And Verify all the products related to search are visible...................passed
 ]]></system-out>
 </testcase>
 </testsuite>

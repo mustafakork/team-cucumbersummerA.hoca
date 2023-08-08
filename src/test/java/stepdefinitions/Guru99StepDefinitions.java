@@ -1,12 +1,20 @@
 package stepdefinitions;
 
+import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import pages.Guru99Page;
 import utilities.Driver;
 
 public class Guru99StepDefinitions {
     Guru99Page guru99Page =new Guru99Page();
+    Faker faker =new Faker();
+
 
 
 
@@ -19,31 +27,35 @@ public class Guru99StepDefinitions {
 
         Assert.assertTrue(actualTitle.contains(expectedTitle));
 
-
     }
-    @Then("Add Costumer sayfasına gidin")
-    public void add_costumer_sayfasına_gidin() {
-        guru99Page.addCostumer.click();
 
-    }
-    @Then("Formu doldurup submit ekleyin")
-    public void formu_doldurup_submit_ekleyin() {
+    @And("Add Costumer sayfasına gidin")
+    public void addCostumerSayfasınaGidin() {
+        guru99Page.addcustomer.click();
+        WebElement iframeelementi=Driver.getDriver().findElement(By.xpath("//iframe[@id='google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0']"));
+        Driver.getDriver().switchTo().frame(iframeelementi);
+        Driver.getDriver().findElement(By.id("dismiss-button")).click();
 
-    }
-    @Then("Kaydın başarıyla yapıldığı doğrulayın")
-    public void kaydın_başarıyla_yapıldığı_doğrulayın() {
 
-    }
-    @Then("Kullanıcının costumer id’sini yazdırın")
-    public void kullanıcının_costumer_id_sini_yazdırın() {
-
-    }
-    @Then("kullanıcı kredi  kartı üretme sayfasına gider")
-    public void kullanıcı_kredi_kartı_üretme_sayfasına_gider() {
 
     }
 
+    @And("formu doldurup müşteri  ekler")
+    public void formuDoldurupMüşteriEkler() {
+
+        guru99Page.done.click();
+        guru99Page.firstName.sendKeys(faker.name().firstName());
+        Actions actions  =new Actions(Driver.getDriver());
+        actions.click(guru99Page.lastName).sendKeys(faker.name().lastName());
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys("mk@gmail.com");
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(faker.address().city());
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys("445511665588");
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.ENTER).perform();
 
 
-
+    }
 }

@@ -1,6 +1,6 @@
 
 Feature: US1005 Pozitif LOgin Testi
-  @wip
+
 
   Scenario:  TC kullanıcı doğru değerlerle uygulamaya giriş yapabilmeli
 

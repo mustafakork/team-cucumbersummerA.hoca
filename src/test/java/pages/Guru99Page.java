@@ -9,8 +9,9 @@ public class Guru99Page {
     public Guru99Page(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(xpath = "(//a[@href='addcustomer.php'])[1]")
-    public WebElement addCostumer;
+
+    @FindBy(xpath = "//h3[1]")
+    public WebElement addcustomer;
 
     @FindBy(xpath = "//*[@for='done']")
     public WebElement done;
@@ -32,17 +33,4 @@ public class Guru99Page {
 
     @FindBy(xpath="//input[@type='submit']")
     public WebElement submit;
-
-    @FindBy(xpath = "//h1")
-    public WebElement details;
-
-    @FindBy(xpath = "(//h3)[1]")
-    public WebElement costumerID;
-
-    @FindBy(xpath = "//iframe[@id='google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0']")
-    public WebElement iframe;
-
-    @FindBy(xpath = "//div[@id='dismiss-button']")
-    public WebElement reklamKapat;
-
 }
